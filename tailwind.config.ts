@@ -8,13 +8,26 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-      },
+      transitionTimingFunction: {
+        'emil': 'cubic-bezier(0.32, 0.72, 0, 1)'
+      }
     },
   },
-  plugins: [],
+  plugins: [
+    require("@tailwindcss/typography"),
+    require("tailwindcss-animate"),
+    require("daisyui")
+  ],
+  /** @satisfies {import('daisyui').Config} */
+  daisyui: {
+    themes: [{
+      light: {
+        ...require("daisyui/src/theming/themes")["light"],
+        "primary": "#009DE1",
+        "secondary": "#37A833"
+      }
+    }],
+
+  },
 }
 export default config

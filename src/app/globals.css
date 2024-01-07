@@ -2,26 +2,69 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+@font-face {
+  font-family: IRANYekan;
+  font-weight: 700;
+  src: url("/fonts/iranyekanwebbold.woff2");
+}
+@font-face {
+  font-family: IRANYekan;
+  font-weight: 500;
+  src: url("/fonts/iranyekanwebmedium.woff");
+}
+@font-face {
+  font-family: IRANYekan;
+  font-weight: 800;
+  src: url("/fonts/iranyekanwebextrabold.woff");
+}
+@font-face {
+  font-family: IRANYekan;
+  font-weight: 400;
+  src: url("/fonts/iranyekanwebregular.woff2");
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@layer base {
+  html,
+  body {
+    height: 100%;
+    font-family: IRANYekan !important;
+  }
+
+  body {
+    @apply h-fit overflow-y-scroll;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+body::-webkit-scrollbar {
+  width: 8px;
+}
+
+body::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #c9c9c9;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background: #c1c1c1;
+}
+
+.btn {
+  @apply h-10 min-h-0 min-w-0 leading-none;
+}
+
+.btn-square,
+.btn-circle {
+  @apply h-10 w-10;
+}
+
+.btn-ghost:hover {
+  --tw-bg-opacity: 0.1;
+}
+
+.input,
+.select {
+  @apply h-10 min-h-0 min-w-0 text-sm caret-primary;
 }
